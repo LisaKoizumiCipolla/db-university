@@ -1,7 +1,7 @@
 1. 
 SELECT * 
 FROM `students` 
-WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31';
+WHERE YEAR(`date_of_birth`)='1990';
 
 2. 
 SELECT * 
@@ -11,12 +11,12 @@ WHERE `cfu` > 10;
 3. 
 SELECT * 
 FROM `students` 
-WHERE `date_of_birth`<'1993-07-09';
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30 ;
 
 4. 
 SELECT * 
 FROM `courses` 
-WHERE `period` LIKE 'I semestre' AND `year` = 1;
+WHERE `period` = 'I semestre' AND `year` = 1;
 
 5.
 SELECT * 
@@ -26,7 +26,7 @@ WHERE DATE(date)='2020-06-20' AND `hour`>'14:00:00';
 6. 
 SELECT * 
 FROM `degrees` 
-WHERE `level` LIKE 'magistrale';
+WHERE `level` = 'magistrale';
 
 7. 
 SELECT COUNT(id) 
